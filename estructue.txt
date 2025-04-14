@@ -1,0 +1,12 @@
+/src
+  /components
+    MatrixInput.jsx
+    MatrixResult.jsx
+    OperationSelector.jsx
+    ProcessDisplay.jsx
+    VectorPlot.jsx
+  /utils
+    matrixOperations.js
+    vectorUtils.js
+  App.jsx
+  main.jsx
