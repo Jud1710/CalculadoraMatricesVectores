@@ -10,7 +10,7 @@ function BasicsMatrix() {
 
   const handleOperation = (operation) => {
     try {
-      const matrixData = getMatrix("A"); // Pasamos el identificador "A"
+      const matrixData = getMatrix("A");
       setResult(operation(matrixData));
       setError(null);
     } catch (err) {
@@ -20,25 +20,22 @@ function BasicsMatrix() {
   };
 
   return (
-    <div className="flex flex-col gap-6">
-      <section className="w-full rounded-xl bg-[var(--color-surface-two)] p-2 flex items-center justify-center shadow-md">
-        <MatrixBasicsButtons
-          onOperation={handleOperation}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"
-        />
+    <div className="flex flex-col gap-4 sm:gap-6">
+      <section className="w-full overflow-x-auto bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
+        <MatrixBasicsButtons onOperation={handleOperation} />
       </section>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        <section className="w-full rounded-xl bg-[var(--color-surface-two)] p-2 flex items-center justify-center shadow-md">
-          <MatrizInputs identifier="A" className="w-full" />
+      <div className="grid lg:grid-cols-2 gap-4">
+        <section className="w-full overflow-x-auto bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
+          <div className="min-w-[300px]">
+            <MatrizInputs identifier="A" />
+          </div>
         </section>
 
-        <section className="w-full rounded-xl bg-[var(--color-surface-two)] p-2 flex items-center justify-center shadow-md">
-          <MatrixResults
-            result={result}
-            error={error}
-            className="animate-fadeIn"
-          />
+        <section className="w-full overflow-x-auto bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
+          <div className="min-w-[300px]">
+            <MatrixResults result={result} error={error} />
+          </div>
         </section>
       </div>
     </div>

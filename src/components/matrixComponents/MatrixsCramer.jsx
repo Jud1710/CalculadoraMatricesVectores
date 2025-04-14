@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 function MatrixsCramer() {
-  const [size, setSize] = useState(3); // Un solo estado para mantener matriz cuadrada
+  const [size, setSize] = useState(3);
 
   return (
-    <div className="flex flex-col md:flex-row gap-4">
+    <div className="flex flex-col lg:flex-row gap-4">
       {/* Matriz de coeficientes */}
-      <article className="flex-1 flex flex-col w-full h-full gap-2 p-6 bg-[var(--color-surface)] text-[var(--color-text-primary)] rounded-xl shadow-md transition-shadow duration-200 hover:shadow-lg">
+      <article className="flex-1 flex flex-col w-full gap-4 p-4 sm:p-6 bg-[var(--color-surface)] text-[var(--color-text-primary)] rounded-xl shadow-md transition-shadow duration-200 hover:shadow-lg">
         <header className="text-2xl font-bold text-center tracking-tight">
           Matriz de Coeficientes
         </header>
 
-        <div className="flex w-full h-1/2 justify-center items-center px-6 py-2 bg-[var(--color-surface-two)] rounded-xl shadow-md transition-shadow duration-200 hover:shadow-lg">
+        <div className="flex w-full justify-center items-center px-6 py-2 bg-[var(--color-surface-two)] rounded-xl shadow-md transition-shadow duration-200 hover:shadow-lg">
           <div className="flex items-center gap-2">
             <label
               htmlFor="matrix-size"
@@ -41,14 +41,12 @@ function MatrixsCramer() {
           </div>
         </div>
 
-        <div
-          className="flex w-full h-full justify-center items-center p-4 bg-[var(--color-surface-two)] rounded-xl shadow-md transition-shadow duration-200 hover:shadow-lg"
-        >
+        <div className="w-full overflow-x-auto rounded-xl bg-[var(--color-surface-two)] p-2 sm:p-4">
           <div
             id="matriz-coeficientes"
-            className="grid gap-3"
+            className="grid gap-2 sm:gap-3 min-w-fit"
             style={{
-              gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))`,
+              gridTemplateColumns: `repeat(${size}, minmax(60px, 1fr))`,
               gridTemplateRows: `repeat(${size}, auto)`,
             }}
           >
@@ -71,7 +69,7 @@ function MatrixsCramer() {
       </article>
 
       {/* Matriz de términos independientes */}
-      <article className="w-full md:w-48 flex flex-col min-h-full gap-2 p-6 bg-[var(--color-surface)] text-[var(--color-text-primary)] rounded-xl shadow-md transition-shadow duration-200 hover:shadow-lg">
+      <article className="w-full lg:w-48 flex flex-col gap-4 p-4 sm:p-6 bg-[var(--color-surface)] text-[var(--color-text-primary)] rounded-xl shadow-md transition-shadow duration-200 hover:shadow-lg">
         <header className="text-2xl font-bold text-center tracking-tight">
           Términos
         </header>
