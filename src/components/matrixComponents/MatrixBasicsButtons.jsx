@@ -1,6 +1,7 @@
 import ButtonFunction from "../general/ButtonFunction.jsx";
 import {
   getDeterminante,
+  getDeterminanteSarrus,
   getTranspose,
   getAdjunta,
   getInverse,
@@ -8,14 +9,15 @@ import {
 
 export function MatrixBasicsButtons({ onOperation }) {
   return (
-    <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-4 p-2">
-      <h1 className="text-xl sm:text-2xl font-bold text-center">
-        Operaciones Básicas de Matrices
-      </h1>
+    <div className="flex justify-between items-center w-full gap-4 p-2 ">
       <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
         <ButtonFunction
-          nameFunction="Determinante"
+          nameFunction="Determinante(cofactores)"
           onClick={() => onOperation(getDeterminante)}
+        />
+        <ButtonFunction
+          nameFunction="Determinante(Sarrus)"
+          onClick={() => onOperation(getDeterminanteSarrus)}
         />
         <ButtonFunction
           nameFunction="Transpuesta"

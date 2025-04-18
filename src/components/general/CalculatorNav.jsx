@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const BtnLink = ({ liName, href }) => {
   return (
-    <Link 
+    <Link
       to={href}
       className="px-4 py-2 text-center text-sm font-medium
         text-[var(--color-text-primary)] 
@@ -19,7 +19,7 @@ const BtnLink = ({ liName, href }) => {
       {liName}
     </Link>
   );
-}
+};
 
 export function CalculadoraNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,9 +30,9 @@ export function CalculadoraNav() {
         <div className="flex items-center justify-between h-16">
           {/* Logo y nombre */}
           <div className="flex items-center gap-3">
-            <img 
-              src="/images/logo.png" 
-              alt="Logo" 
+            <img
+              src="/images/logo.png"
+              alt="Logo"
               className="w-8 h-8 md:w-10 md:h-10"
             />
             <span className="text-lg font-bold tracking-tight md:text-xl">
@@ -45,27 +45,27 @@ export function CalculadoraNav() {
             <div className="flex items-center gap-4">
               <BtnLink liName="Básicas" href="/" />
               <BtnLink liName="Cramer" href="/cramer" />
-              <BtnLink liName="Operaciones " href="/Operaciones" />
+              <BtnLink liName="Operaciones " href="/operaciones" />
               <BtnLink liName="Vectores" href="/Vectores" />
               <BtnLink liName="Vectores3D" href="/Vectores3d" />
             </div>
           </div>
 
           {/* Botón de menú - Mobile */}
-          <button 
+          <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-[var(--color-secondary)]"
           >
-            <svg 
-              className="w-6 h-6" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
@@ -74,13 +74,14 @@ export function CalculadoraNav() {
       </div>
 
       {/* Menú móvil */}
-      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
+      <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <div className="flex flex-col gap-2">
             <BtnLink liName="Básicas" href="/" />
             <BtnLink liName="Cramer" href="/cramer" />
-            <BtnLink liName="Determinantes" href="/determinantes" />
-            <BtnLink liName="Inversas" href="/inversas" />
+            <BtnLink liName="Operaciones " href="/operaciones" />
+            <BtnLink liName="Vectores" href="/Vectores" />
+            <BtnLink liName="Vectores3D" href="/Vectores3d" />
           </div>
         </div>
       </div>

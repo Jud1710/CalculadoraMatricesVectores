@@ -6,23 +6,23 @@ function MatrixResults({ result, error }) {
   };
 
   return (
-    <div className="flex flex-col w-full gap-4">
+    <div className="flex flex-col w-full gap-4 bg-[var(--color-surface)] p-2 rounded-xl">
       <h2 className="text-xl sm:text-2xl font-bold text-center">
         Resultados
       </h2>
       
       {error ? (
-        <p className="text-base sm:text-lg text-[var(--color-danger)] text-center p-4">
+        <p className="text-base sm:text-lg text-[var(--color-danger)] text-center p-4 max-w-[300px]">
           {error}
         </p>
       ) : result ? (
-        <div className="w-full overflow-x-auto">
-          <div className="min-w-fit p-4">
+        <div className="w-full">
+          <div className="p-4 max-w-[600px] mx-auto">
             <div
               className="grid gap-2"
               style={{
                 gridTemplateColumns: Array.isArray(result) ? 
-                  `repeat(${result[0].length}, minmax(60px, 1fr))` : 
+                  `repeat(${result[0].length}, minmax(min-content, 1fr))` : 
                   '1fr'
               }}
             >
@@ -30,12 +30,12 @@ function MatrixResults({ result, error }) {
                 result.flat().map((cell, index) => (
                   <div
                     key={index}
-                    className="w-14 sm:w-16 h-10 flex items-center justify-center bg-[var(--color-input-bg)] rounded-lg overflow-x-auto"
+                    className="min-w-[60px] h-auto p-2 flex items-center justify-center bg-[var(--color-input-bg)] rounded-lg break-words text-sm"
                   >
                     {formatNumber(cell)}
                   </div>
                 )) : 
-                <div className="text-center p-4">
+                <div className="text-center p-4 font-bold text-lg sm:text-xl break-words bg-[var(--color-input-bg)] rounded-lg">
                   {formatNumber(result)}
                 </div>
               }

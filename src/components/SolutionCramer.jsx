@@ -25,7 +25,7 @@ function SolutionCramer() {
 
   return (
     <div className="flex flex-col gap-4 sm:gap-6">
-      <section className="w-full overflow-x-auto bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
+      <section className="bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
         <MatrixCramerButtons
           onOperation={handleOperation}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"
@@ -33,11 +33,11 @@ function SolutionCramer() {
       </section>
 
       <div className="grid lg:grid-cols-2 gap-4">
-        <section className="w-full overflow-x-auto bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
+        <section className="bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
           <MatrixsCramer className="w-full" />
         </section>
 
-        <section className="w-full overflow-x-auto bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
+        <section className="bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
           <MatrixResults
             result={result}
             error={error}

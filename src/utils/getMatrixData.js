@@ -1,16 +1,11 @@
-
-
 export function getMatrixDataCramer() {
-  // Obtener datos de la matriz de coeficientes
   const coeficientesContainer = document.getElementById('matriz-coeficientes');
   const coeficientesInputs = coeficientesContainer.querySelectorAll('input');
   const size = parseInt(document.getElementById('matrix-size').value);
 
-  // Obtener datos de la matriz de términos
   const terminosContainer = document.getElementById('matriz-terminos');
   const terminosInputs = terminosContainer.querySelectorAll('input');
 
-  // Procesar valores de coeficientes
   const coeficientesValues = Array.from(coeficientesInputs).map((input) => {
     const value = parseFloat(input.value);
     if (isNaN(value)) {
@@ -19,7 +14,6 @@ export function getMatrixDataCramer() {
     return value;
   });
 
-  // Procesar valores de términos
   const terminosValues = Array.from(terminosInputs).map((input) => {
     const value = parseFloat(input.value);
     if (isNaN(value)) {
@@ -28,7 +22,6 @@ export function getMatrixDataCramer() {
     return value;
   });
 
-  // Crear matriz de coeficientes
   const matrizCoeficientes = [];
   for (let i = 0; i < size; i++) {
     matrizCoeficientes.push(coeficientesValues.slice(i * size, (i + 1) * size));

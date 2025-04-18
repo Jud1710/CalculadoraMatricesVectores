@@ -2,6 +2,8 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import CalculatorNav from "./components/general/CalculatorNav.jsx";
 import BasicsMatrix from "./components/BasicsMatrix.jsx";
 import SolutionCramer from "./components/SolutionCramer.jsx";
+import OperationsMatrix from "./components/OperationsMatrix.jsx";
+import EscalarMatrix from "./components/EscalarMatrix.jsx";
 
 function App() {
   return (
@@ -35,7 +37,8 @@ function App() {
             <Routes>
               <Route path="/" element={<BasicsMatrix />} />
               <Route path="/cramer" element={<SolutionCramer />} />
-              <Route path="/determinantes" element={<BasicsMatrix />} />
+              <Route path="/operaciones" element={<OperationsMatrix />} />
+              <Route path="/operaciones/escalar" element={<EscalarMatrix />} />
               <Route path="/inversas" element={<BasicsMatrix />} />
             </Routes>
           </main>
