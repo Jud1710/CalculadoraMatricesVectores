@@ -9,30 +9,25 @@
   --color-sidebar: rgba(38, 47, 63, 0.9); /* Barras laterales con transparencia */
   --color-footer: rgba(15, 23, 42, 0.95); /* Pie de página con transparencia */
 
-  /* 🎨 Colores primarios y secundarios */
   --color-primary: #3b82f6; /* Azul principal */
   --color-primary-hover: #60a5fa; /* Azul claro */
   --color-secondary: #687c8f; /* Gris azulado */
   --color-secondary-hover: #4e5e6e; /* Gris azulado claro */
   --color-third: #475569; /* Gris neutral */
 
-  /* 🧠 Estados */
   --color-accent: #2563eb; /* Azul acento */
   --color-success: #10b981; /* Verde sobrio */
   --color-warning: #f59e0b; /* Amarillo sobrio */
   --color-danger: #ef4444; /* Rojo sobrio */
 
-  /* 🧱 Bordes y sombras */
   --color-border: #475569; /* Bordes profesionales */
   --color-shadow: rgba(0, 0, 0, 0.25); /* Sombras sutiles */
 
-  /* 📝 Tipografía */
   --color-text-primary: #f1f5f9; /* Texto principal */
   --color-text-secondary: #cbd5e1; /* Texto secundario */
   --color-text-muted: #94a3b8; /* Texto tenue */
   --color-text-inverted: #ffffff; /* Texto invertido */
 
-  /* 🧪 Extras */
   --color-input-bg: #334155; /* Fondo de inputs */
   --color-input-border: #475569; /* Bordes de inputs */
   --color-input-focus: #3b82f6; /* Foco en inputs */
