@@ -9,7 +9,8 @@ import {
 
 export function MatrixOperationButtons({ onOperation }) {
   const { pathname } = useLocation();
-  const linkStyle = "px-3 py-2 bg-[var(--color-surface-two)] hover:bg-[var(--color-card-highlight)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow active:transform active:scale-95"
+  const linkStyle =
+    "px-3 py-2 bg-[var(--color-surface-two)] hover:bg-[var(--color-card-highlight)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow active:transform active:scale-95";
 
   return (
     <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-4 p-2">
@@ -18,14 +19,26 @@ export function MatrixOperationButtons({ onOperation }) {
       </h1>
 
       <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
-        <ButtonFunction
-          nameFunction="Suma"
-          onClick={() => onOperation(SumMatrix)}
-        />
-        <ButtonFunction
-          nameFunction="Resta"
-          onClick={() => onOperation(SustractMatrix)}
-        />
+        {pathname === "/operaciones" ? (
+          <ButtonFunction
+            nameFunction="Suma"
+            onClick={() => onOperation(SumMatrix)}
+          />
+        ) : (
+          <Link to="/operaciones" className={linkStyle}>
+            Suma
+          </Link>
+        )}
+        {pathname === "/operaciones" ? (
+          <ButtonFunction
+            nameFunction="Resta"
+            onClick={() => onOperation(SustractMatrix)}
+          />
+        ) : (
+          <Link to="/operaciones" className={linkStyle}>
+            Resta
+          </Link>
+        )}
 
         {pathname === "/operaciones" ? (
           <ButtonFunction

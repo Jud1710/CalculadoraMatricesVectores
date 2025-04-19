@@ -8,7 +8,7 @@ import EscalarMatrix from "./components/EscalarMatrix.jsx";
 function App() {
   return (
     <HashRouter>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col 0">
         <CalculatorNav />
         <div
           id="container-app"
@@ -21,8 +21,11 @@ function App() {
           bg-[var(--color-surface)]
           text-[var(--color-text-primary)]
           rounded-xl
+          rounded-ss-none
+          rounded-se-none
           shadow-lg
           border border-[var(--color-border)]
+          border-t-0
           backdrop-blur-sm
           transition-all
           duration-300

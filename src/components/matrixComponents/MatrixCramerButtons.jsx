@@ -1,5 +1,6 @@
 import ButtonFunction from "../general/ButtonFunction.jsx";
 import { solveCramer } from "../../utils/solveCramer.js";
+import { Table } from 'lucide-react';
 
 export function MatrixCramerButtons({ onOperation }) {
   return (
@@ -10,6 +11,7 @@ export function MatrixCramerButtons({ onOperation }) {
         </h1>
         <div className="flex flex-wrap justify-center gap-4 px-4 py-1">
           <ButtonFunction
+            icon={<Table className="w-4 h-4" />}
             nameFunction="Calcular Sistema De Ecuaciones"
             onClick={() => onOperation(solveCramer)}
           />

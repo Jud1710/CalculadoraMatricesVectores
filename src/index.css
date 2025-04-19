@@ -2,42 +2,50 @@
 
 :root {
   /* 🎭 Fondo base y estructura */
-  --color-background: #1a1a2e; /* Fondo oscuro pastel */
-  --color-surface: #25233b; /* Superficie principal */
-  --color-surface-two: #2e2c47; /* Superficie secundaria */
-  --color-header: #2e2b4a; /* Encabezados */
-  --color-sidebar: #2b2940; /* Barras laterales */
-  --color-footer: #1f1d33; /* Pie de página */
+  --color-background: rgba(30, 41, 59, 0.95); /* Azul oscuro profesional con transparencia */
+  --color-surface: rgba(41, 53, 72, 0.9); /* Superficie principal con transparencia */
+  --color-surface-two: rgba(51, 65, 85, 0.9); /* Superficie secundaria con transparencia */
+  --color-header: rgba(30, 41, 59, 0.95); /* Encabezados con transparencia */
+  --color-sidebar: rgba(38, 47, 63, 0.9); /* Barras laterales con transparencia */
+  --color-footer: rgba(15, 23, 42, 0.95); /* Pie de página con transparencia */
 
   /* 🎨 Colores primarios y secundarios */
-  --color-primary: #a78bfa; /* Morado pastel */
-  --color-primary-hover: #c4b5fd; /* Morado más claro */
-  --color-secondary: #7c3aed52; /* Morado intenso */
-  --color-secondary-hover: #50377a7b; /* Morado intenso */
-  --color-third: #8d8d8d71; /* Morado intenso */
+  --color-primary: #3b82f6; /* Azul principal */
+  --color-primary-hover: #60a5fa; /* Azul claro */
+  --color-secondary: #687c8f; /* Gris azulado */
+  --color-secondary-hover: #4e5e6e; /* Gris azulado claro */
+  --color-third: #475569; /* Gris neutral */
 
   /* 🧠 Estados */
-  --color-accent: #d8b4fe; /* Morado pastel claro */
-  --color-success: #81e6d9; /* Verde pastel */
-  --color-warning: #fbd38d; /* Amarillo pastel */
-  --color-danger: #fc8181; /* Rojo pastel */
+  --color-accent: #2563eb; /* Azul acento */
+  --color-success: #10b981; /* Verde sobrio */
+  --color-warning: #f59e0b; /* Amarillo sobrio */
+  --color-danger: #ef4444; /* Rojo sobrio */
 
   /* 🧱 Bordes y sombras */
-  --color-border: #4c4a6a; /* Bordes suaves */
-  --color-shadow: rgba(0, 0, 0, 0.3); /* Sombras suaves */
+  --color-border: #475569; /* Bordes profesionales */
+  --color-shadow: rgba(0, 0, 0, 0.25); /* Sombras sutiles */
 
   /* 📝 Tipografía */
-  --color-text-primary: #e4e4f0; /* Texto principal */
-  --color-text-secondary: #b3b3cc; /* Texto secundario */
-  --color-text-muted: #8a8aa6; /* Texto tenue */
+  --color-text-primary: #f1f5f9; /* Texto principal */
+  --color-text-secondary: #cbd5e1; /* Texto secundario */
+  --color-text-muted: #94a3b8; /* Texto tenue */
   --color-text-inverted: #ffffff; /* Texto invertido */
 
   /* 🧪 Extras */
-  --color-input-bg: #3a375e; /* Fondo de inputs */
-  --color-input-border: #5c5a7d; /* Bordes de inputs */
-  --color-input-focus: #a78bfa; /* Foco en inputs */
-  --color-card-highlight: #4a476e; /* Resaltado de tarjetas */
+  --color-input-bg: #334155; /* Fondo de inputs */
+  --color-input-border: #475569; /* Bordes de inputs */
+  --color-input-focus: #3b82f6; /* Foco en inputs */
+  --color-card-highlight: #374151; /* Resaltado de tarjetas */
 }
+
+
+body {
+  background-color: var(--color-background);
+  background-image: url('./assets/background-pattern.svg');
+  background-size: 25%;
+}
+
 
 /* Estilo para las barras de desplazamiento */
 ::-webkit-scrollbar {

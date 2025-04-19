@@ -6,7 +6,7 @@ function MatrizInputs({ identifier }) {
 
   return (
     <div className="flex flex-col w-full gap-4">
-      <article className="flex flex-col w-full gap-4 p-2 sm:p-4 bg-[var(--color-surface)] text-[var(--color-text-primary)] rounded-xl shadow-md">
+      <article className="flex flex-col w-full gap-4 p-2 mb-4 sm:p-4 bg-[var(--color-surface)] text-[var(--color-text-primary)] rounded-xl shadow-md">
         <header className="text-xl sm:text-2xl font-bold text-center tracking-tight">
           Matriz {identifier}
         </header>
@@ -74,17 +74,19 @@ function MatrizInputs({ identifier }) {
         <div className="w-full rounded-xl bg-[var(--color-surface-two)] p-2">
           <div
             id={`matriz-${identifier}`}
-            className="flex flex-wrap justify-center gap-2"
+            className="grid place-items-center gap-2 mx-auto"
             style={{
-              maxWidth: `${columns * 80}px`,
-              margin: '0 auto'
+              display: 'grid',
+              gridTemplateColumns: `repeat(${columns}, minmax(60px, 1fr))`,
+              gridTemplateRows: `repeat(${rows}, 1fr)`,
+              maxWidth: `${columns * 80}px`
             }}
           >
             {Array.from({ length: rows * columns }, (_, i) => (
               <input
                 key={i}
                 type="number"
-                className="w-[70px] h-10 px-1 text-center
+                className="w-full h-10 px-1 text-center
                        bg-[var(--color-input-bg)]
                        border border-[var(--color-border)]
                        rounded-lg
@@ -93,10 +95,8 @@ function MatrizInputs({ identifier }) {
                        focus:border-transparent
                        outline-none
                        text-sm
-                       break-words"
-                style={{
-                  textOverflow: 'ellipsis'
-                }}
+                       min-w-[60px]
+                       max-w-[80px]"
               />
             ))}
           </div>

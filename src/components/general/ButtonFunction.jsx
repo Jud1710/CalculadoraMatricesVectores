@@ -2,7 +2,7 @@ export const ButtonFunction = ({ nameFunction, onClick }) => {
   return (
     <button
       className="px-3 py-2 
-                  bg-[var(--color-surface-two)]
+                  bg-[var(--color-third)]
                   hover:bg-[var(--color-card-highlight)]
                   text-[var(--color-text-primary)]
                   border border-[var(--color-border)]
