@@ -9,8 +9,8 @@ import {
 
 export function MatrixBasicsButtons({ onOperation }) {
   return (
-    <div className="flex justify-between items-center w-full gap-4 p-2 ">
-      <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
+    <div className="flex justify-center items-center w-full sm:w-fit">
+      <div className="flex flex-col justify-center gap-2 sm:gap-4">
         <ButtonFunction
           nameFunction="Determinante(cofactores)"
           onClick={() => onOperation(getDeterminante)}

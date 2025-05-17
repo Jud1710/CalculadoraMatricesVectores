@@ -20,24 +20,21 @@ function BasicsMatrix() {
   };
 
   return (
-    <div className="flex flex-col gap-4 sm:gap-6">
-      <section className="bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
-        <MatrixBasicsButtons onOperation={handleOperation} />
+    <div className="grid lg:grid-cols-2 gap-2">
+      <section className="flex flex-col md:flex-row bg-[var(--color-surface-two)] p-2 gap-4 rounded-xl shadow-md">
+        <div className="w-full md:w-auto flex items-center justify-center">
+          <MatrixBasicsButtons onOperation={handleOperation} />
+        </div>
+        <div className="w-full">
+          <MatrizInputs identifier="A" />
+        </div>
       </section>
 
-      <div className="grid lg:grid-cols-2 gap-4">
-        <section className="bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
-          <div className="w-full">
-            <MatrizInputs identifier="A" />
-          </div>
-        </section>
-
-        <section className="bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
-          <div className="w-full">
-            <MatrixResults result={result} error={error} />
-          </div>
-        </section>
-      </div>
+      <section className="bg-[var(--color-surface-two)] p-2 sm:p-4 rounded-xl shadow-md">
+        <div className="w-full">
+          <MatrixResults result={result} error={error} />
+        </div>
+      </section>
     </div>
   );
 }
