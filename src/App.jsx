@@ -4,6 +4,7 @@ import BasicsMatrix from "./components/BasicsMatrix.jsx";
 import SolutionCramer from "./components/SolutionCramer.jsx";
 import OperationsMatrix from "./components/OperationsMatrix.jsx";
 import EscalarMatrix from "./components/EscalarMatrix.jsx";
+import OperationsVectors from "./components/OperationsVectors.jsx";
 
 function App() {
   return (
@@ -41,8 +42,9 @@ function App() {
               <Route path="/" element={<BasicsMatrix />} />
               <Route path="/cramer" element={<SolutionCramer />} />
               <Route path="/operaciones" element={<OperationsMatrix />} />
-              <Route path="/operaciones/escalar" element={<EscalarMatrix />} />
+              <Route path="/escalar" element={<EscalarMatrix />} />
               <Route path="/inversas" element={<BasicsMatrix />} />
+              <Route path="/vectoresoperaciones" element={<OperationsVectors/>}></Route>
             </Routes>
           </main>
         </div>
