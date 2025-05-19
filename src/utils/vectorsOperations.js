@@ -15,8 +15,8 @@ export function subVectores2D({ x, y }) {
     const ynums = y;
 
     const resta = [
-        xnums.reduce((acc, val) => acc - val, 0),
-        ynums.reduce((acc, val) => acc - val, 0),
+        xnums.slice(1).reduce((acc, val) => acc - val, xnums[0] ?? 0),
+        ynums.slice(1).reduce((acc, val) => acc - val, ynums[0] ?? 0),
     ];
 
     return resta;

@@ -21,7 +21,7 @@ function BasicsMatrix() {
 
   return (
     <div className="grid lg:grid-cols-2 gap-2">
-      <section className="flex flex-col md:flex-row bg-[var(--color-surface-two)] p-2 gap-4 rounded-xl shadow-md">
+      <section className="flex flex-col md:flex-row bg-[var(--color-surface-two)] px-2 py-4 gap-2 rounded-xl shadow-md">
         <div className="w-full md:w-auto flex items-center justify-center">
           <MatrixBasicsButtons onOperation={handleOperation} />
         </div>

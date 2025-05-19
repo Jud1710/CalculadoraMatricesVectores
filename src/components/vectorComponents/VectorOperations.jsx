@@ -3,7 +3,7 @@ import { sumVectores2D, subVectores2D, productoPunto } from "../../utils/vectors
 
 export default function VectorBasicsButtons({ onOperation }) {
   return (
-    <div className="flex justify-between items-center w-full gap-4 p-2 ">
+    <div className="flex items-center justify-center w-full gap-4 p-2 ">
       <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
         <ButtonFunction
           nameFunction="Suma"
@@ -15,6 +15,10 @@ export default function VectorBasicsButtons({ onOperation }) {
         />
         <ButtonFunction
           nameFunction="Producto Punto"
+          onClick={() => onOperation(productoPunto)}
+        />
+        <ButtonFunction
+          nameFunction="Producto Cruz"
           onClick={() => onOperation(productoPunto)}
         />
       </div>
