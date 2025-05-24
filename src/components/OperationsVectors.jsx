@@ -3,11 +3,6 @@ import { VectorGraph } from "./vectorComponents/GraficaPlot";
 import VectorBasicsButtons from "./vectorComponents/VectorOperations";
 import VectorResult from "./vectorComponents/VectorResult";
 import VectorsInputs from "./vectorComponents/VectorsInputs";
-import {
-  sumVectores2D,
-  subVectores2D,
-  productoPunto,
-} from "../utils/vectorsOperations";
 
 // Utilidad para convertir ángulo y magnitud a coordenadas cartesianas
 function polarToCartesian(angle, magnitude) {
@@ -71,31 +66,15 @@ function OperationsVectors() {
   const handleOperation = (operation) => {
     try {
       const vectorData = getValues2DFromPolar(vectors);
-      const res = operation(vectorData);
+      const result = operation(vectorData);
 
-      // Prepara todos los vectores originales en cartesiano
-      const cartesian = getCartesianVectorsObj(vectors);
-
-      // Si el resultado es un vector [x, y], añádelo como "Resultado"
-      let resultObj;
-      if (Array.isArray(res) && res.length === 2) {
-        resultObj = {
-          vectors: cartesian,
-          Resultado: { x: res[0], y: res[1] },
-          timestamp: Date.now(),
-          operationType: operation.name, // Añadimos el tipo de operación
-        };
-      } else {
-        // Si es escalar (producto punto), solo muestra el número
-        resultObj = {
-          value: res,
-          timestamp: Date.now(),
-          operationType: operation.name,
-        };
+      // Validamos si el resultado es válido
+      if (!result) {
+        throw new Error('Operación no produjo un resultado válido');
       }
 
-      // Actualizamos directamente sin setTimeout
-      setResult(resultObj);
+      // Actualizamos el estado con el resultado directamente
+      setResult(result);
       setError(null);
     } catch (err) {
       setError("Error al ejecutar la operación: " + err.message);

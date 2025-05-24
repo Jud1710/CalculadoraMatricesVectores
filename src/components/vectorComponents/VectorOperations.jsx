@@ -1,5 +1,5 @@
 import ButtonFunction from "../general/ButtonFunction.jsx";
-import { sumVectores2D, subVectores2D, productoPunto, productoCruz } from "../../utils/vectorsOperations.js";
+import { sumVectores2D, subVectores2D, productoPunto } from "../../utils/vectorsOperations.js";
 
 export default function VectorBasicsButtons({ onOperation }) {
   return (
@@ -16,10 +16,6 @@ export default function VectorBasicsButtons({ onOperation }) {
         <ButtonFunction
           nameFunction="Producto Punto"
           onClick={() => onOperation(productoPunto)}
-        />
-        <ButtonFunction
-          nameFunction="Producto Cruz"
-          onClick={() => onOperation(productoCruz)}
         />
       </div>
     </div>

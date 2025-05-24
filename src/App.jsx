@@ -5,6 +5,7 @@ import SolutionCramer from "./components/SolutionCramer.jsx";
 import OperationsMatrix from "./components/OperationsMatrix.jsx";
 import EscalarMatrix from "./components/EscalarMatrix.jsx";
 import OperationsVectors from "./components/OperationsVectors.jsx";
+import CrossProduct from "./components/CrossProduct.jsx";
 
 function App() {
   return (
@@ -44,7 +45,8 @@ function App() {
               <Route path="/operaciones" element={<OperationsMatrix />} />
               <Route path="/escalar" element={<EscalarMatrix />} />
               <Route path="/inversas" element={<BasicsMatrix />} />
-              <Route path="/vectoresoperaciones" element={<OperationsVectors/>}></Route>
+              <Route path="/vectoresoperaciones" element={<OperationsVectors/>} />
+              <Route path="/producto-cruz" element={<CrossProduct />} />
             </Routes>
           </main>
         </div>

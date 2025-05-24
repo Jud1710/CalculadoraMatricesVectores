@@ -1,13 +1,24 @@
+// Función auxiliar para calcular magnitud y ángulo
+function calcularMagnitudYAngulo(x, y) {
+    const magnitud = Math.sqrt(x * x + y * y);
+    const angulo = Math.atan2(y, x) * (180 / Math.PI);
+    return { magnitud, angulo };
+}
+
 export function sumVectores2D({ x, y }) {
-    const xnums = x;
-    const ynums = y;
-
-    const suma = [
-        xnums.reduce((acc, val) => acc + val, 0),
-        ynums.reduce((acc, val) => acc + val, 0),
-    ];
-
-    return suma;
+    const xResultante = x.reduce((acc, val) => acc + val, 0);
+    const yResultante = y.reduce((acc, val) => acc + val, 0);
+    
+    const { magnitud, angulo } = calcularMagnitudYAngulo(xResultante, yResultante);
+    
+    return {
+        vector: { x: xResultante, y: yResultante },
+        info: `Magnitud: ${magnitud.toFixed(2)}, Ángulo: ${angulo.toFixed(2)}°`,
+        vectors: Object.fromEntries(
+            x.map((xi, i) => [`V${i + 1}`, { x: xi, y: y[i] }])
+        ),
+        operationType: "sumVectores2D"
+    };
 }
 
 export function subVectores2D({ x, y }) {
@@ -15,30 +26,49 @@ export function subVectores2D({ x, y }) {
         throw new Error('Se requieren al menos dos vectores para la resta');
     }
 
-    const resta = [
-        x[0] - x[1],  
-        y[0] - y[1]   
-    ];
-
-    return resta;
+    const xResultante = x[0] - x[1];
+    const yResultante = y[0] - y[1];
+    
+    const { magnitud, angulo } = calcularMagnitudYAngulo(xResultante, yResultante);
+    
+    return {
+        vector: { x: xResultante, y: yResultante },
+        info: `Magnitud: ${magnitud.toFixed(2)}, Ángulo: ${angulo.toFixed(2)}°`,
+        vectors: {
+            V1: { x: x[0], y: y[0] },
+            V2: { x: x[1], y: y[1] }
+        },
+        operationType: "subVectores2D"
+    };
 }
 
+// Actualizar también producto punto y cruz para mantener consistencia
 export function productoPunto({ x, y }) {
-    if (x.lenght != y.lenght){
-        throw Error('Hubo una error en la transimision de datos')
+    if (x.length !== y.length) {
+        throw Error('Hubo un error en la transmisión de datos');
     }
     const escalar = x.reduce((acc, val, i) => acc + val * y[i], 0);
-    return escalar
+    return {
+        value: escalar,
+        info: `Producto punto: ${escalar.toFixed(2)}`
+    };
 }
 
-// ...existing code...
+export function productoCruz3D(vector1, vector2) {
+  const cross = {
+    x: vector1.y * vector2.z - vector1.z * vector2.y,
+    y: vector1.z * vector2.x - vector1.x * vector2.z,
+    z: vector1.x * vector2.y - vector1.y * vector2.x
+  };
 
-export function productoCruz({ x, y }) {
-    if (x.length !== 2 || y.length !== 2) {
-        throw new Error('El producto cruz en 2D requiere exactamente 2 componentes por vector');
-    }
-
-    // Para vectores 2D, el producto cruz es: x1*y2 - y1*x2
-    const resultado = x[0] * y[1] - y[0] * x[1];
-    return resultado;
+  return {
+    vector: cross,
+    info: `i(${cross.x}) + j(${cross.y}) + k(${cross.z})`,
+    vectors: {
+      V1: vector1,
+      V2: vector2
+    },
+    operationType: "productoCruz3D"
+  };
 }
+
