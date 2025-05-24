@@ -3,7 +3,11 @@ import { VectorGraph } from "./vectorComponents/GraficaPlot";
 import VectorBasicsButtons from "./vectorComponents/VectorOperations";
 import VectorResult from "./vectorComponents/VectorResult";
 import VectorsInputs from "./vectorComponents/VectorsInputs";
-import { sumVectores2D, subVectores2D, productoPunto } from "../utils/vectorsOperations";
+import {
+  sumVectores2D,
+  subVectores2D,
+  productoPunto,
+} from "../utils/vectorsOperations";
 
 // Utilidad para convertir ángulo y magnitud a coordenadas cartesianas
 function polarToCartesian(angle, magnitude) {
@@ -76,14 +80,21 @@ function OperationsVectors() {
       let resultObj;
       if (Array.isArray(res) && res.length === 2) {
         resultObj = {
-          ...cartesian,
-          Resultado: { x: res[0], y: res[1] }
+          vectors: cartesian,
+          Resultado: { x: res[0], y: res[1] },
+          timestamp: Date.now(),
+          operationType: operation.name, // Añadimos el tipo de operación
         };
       } else {
         // Si es escalar (producto punto), solo muestra el número
-        resultObj = res;
+        resultObj = {
+          value: res,
+          timestamp: Date.now(),
+          operationType: operation.name,
+        };
       }
 
+      // Actualizamos directamente sin setTimeout
       setResult(resultObj);
       setError(null);
     } catch (err) {
@@ -122,7 +133,10 @@ function OperationsVectors() {
           <div className="max-h-96 overflow-y-auto pr-2 scrollbar-custom">
             <ul className="flex flex-col gap-3">
               {components.map((comp, index) => (
-                <li key={index} className="transform transition-transform duration-200 hover:translate-x-1">
+                <li
+                  key={index}
+                  className="transform transition-transform duration-200 hover:translate-x-1"
+                >
                   <VectorsInputs
                     identifier={comp.name}
                     angle={vectors[comp.name]?.angle ?? 0}
@@ -140,7 +154,9 @@ function OperationsVectors() {
             Visualización
           </h2>
           <div className="h-[350px] sm:h-[400px] relative">
-            {Object.keys(vectors).length > 0 && <VectorGraph vectors={cartesianVectors} />}
+            {Object.keys(vectors).length > 0 && (
+              <VectorGraph vectors={cartesianVectors} />
+            )}
           </div>
         </section>
       </div>
@@ -154,7 +170,7 @@ function OperationsVectors() {
           </div>
         </section>
       </div>
-      
+
       <style jsx>{`
         .scrollbar-custom::-webkit-scrollbar {
           width: 8px;

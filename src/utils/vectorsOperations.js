@@ -11,12 +11,13 @@ export function sumVectores2D({ x, y }) {
 }
 
 export function subVectores2D({ x, y }) {
-    const xnums = x;
-    const ynums = y;
+    if (x.length < 2 || y.length < 2) {
+        throw new Error('Se requieren al menos dos vectores para la resta');
+    }
 
     const resta = [
-        xnums.slice(1).reduce((acc, val) => acc - val, xnums[0] ?? 0),
-        ynums.slice(1).reduce((acc, val) => acc - val, ynums[0] ?? 0),
+        x[0] - x[1],  
+        y[0] - y[1]   
     ];
 
     return resta;
