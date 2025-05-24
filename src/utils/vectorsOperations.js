@@ -29,3 +29,15 @@ export function productoPunto({ x, y }) {
     const escalar = x.reduce((acc, val, i) => acc + val * y[i], 0);
     return escalar
 }
+
+// ...existing code...
+
+export function productoCruz({ x, y }) {
+    if (x.length !== 2 || y.length !== 2) {
+        throw new Error('El producto cruz en 2D requiere exactamente 2 componentes por vector');
+    }
+
+    // Para vectores 2D, el producto cruz es: x1*y2 - y1*x2
+    const resultado = x[0] * y[1] - y[0] * x[1];
+    return resultado;
+}
