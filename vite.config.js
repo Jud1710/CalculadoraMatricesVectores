@@ -1,9 +1,25 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  base: '/CalculadoraMatricesVectores/', // Agrega esta línea
-})
+  plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor': ['react', 'react-dom'],
+          'plotly': ['react-plotly.js'],
+          'components': [
+            './src/components/vectorComponents/GraficaPlot.jsx',
+            './src/components/vectorComponents/VectorResult.jsx',
+            './src/components/vectorComponents/VectorOperations.jsx'
+          ]
+        }
+      }
+    },
+    chunkSizeWarningLimit: 6000, // Increased to handle plotly size
+  },
+  optimizeDeps: {
+    include: ['react-plotly.js']
+  }
+});

@@ -1,4 +1,6 @@
-import Plot from "react-plotly.js";
+import { lazy, Suspense } from 'react';
+
+const Plot = lazy(() => import('react-plotly.js'));
 
 export function VectorGraph({ vectors, chain = false, customTraces = null }) {
   // Decide qué datos graficar
@@ -23,41 +25,44 @@ export function VectorGraph({ vectors, chain = false, customTraces = null }) {
 
   return (
     <div className="w-full">
-      <Plot
-        data={data}
-        layout={{
-          autosize: true,
-          title: "Gráfico de Vectores",
-          showlegend: true,
-          plot_bgcolor: "#2e2e3f",
-          paper_bgcolor: "#293548e6",
-          font: {
-            color: "#ffffff",
-            size: 18,
-          },
-          xaxis: {
-            title: "Eje X",
-            gridcolor: "#555",
-            zeroline: true,
-            automargin: true,
-          },
-          yaxis: {
-            title: "Eje Y",
-            gridcolor: "#555",
-            zeroline: true,
-            automargin: true,
-          },
-          margin: { t: 40, l: 40, r: 20, b: 40 },
-        }}
-        config={{
-          displayModeBar: true,
-          displaylogo: false,
-          responsive: true,
-          // No removemos botones, así el usuario puede hacer zoom/pan
-        }}
-        style={{ width: "100%", height: "100%", minHeight: 400 }}
-        useResizeHandler={true}
-      />
+      <Suspense fallback={<div>Cargando gráfico...</div>}>
+        <Plot
+          data={data}
+          layout={{
+            autosize: true,
+            title: "Gráfico de Vectores",
+            showlegend: true,
+            plot_bgcolor: "#2e2e3f",
+            paper_bgcolor: "#293548e6",
+            font: {
+              color: "#ffffff",
+              size: 18,
+            },
+            xaxis: {
+              title: "Eje X",
+              gridcolor: "#555",
+              zeroline: true,
+              automargin: true,
+              range: [-10, 10]
+            },
+            yaxis: {
+              title: "Eje Y",
+              gridcolor: "#555",
+              zeroline: true,
+              automargin: true,
+              range: [-10, 10]
+            },
+            margin: { t: 40, l: 40, r: 20, b: 40 }
+          }}
+          config={{
+            displayModeBar: true,
+            displaylogo: false,
+            responsive: true,
+          }}
+          style={{ width: "100%", height: "100%", minHeight: 400 }}
+          useResizeHandler={true}
+        />
+      </Suspense>
     </div>
   );
 }
