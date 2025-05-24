@@ -149,7 +149,7 @@ function OperationsVectors() {
           <h2 className="font-bold mb-4 text-xl text-[var(--color-text-primary)] border-b border-[var(--color-border)] pb-3">
             Resultado
           </h2>
-          <div className="min-h-[100px] flex items-center justify-center">
+          <div className="w-full min-h-[400px]">
             <VectorResult result={result} />
           </div>
         </section>

@@ -57,7 +57,7 @@ export function MatrixOperationButtons({ onOperation }) {
             onClick={() => onOperation(MultiplyByScalar)}
           />
         ) : (
-          <Link to="/operaciones/escalar" className={linkStyle}>
+          <Link to="/escalar" className={linkStyle}>
             Escalar
           </Link>
         )}

@@ -69,11 +69,13 @@ function VectorResult({ result }) {
 
     // Renderiza el gráfico
     return (
-      <div>
-        <h2>Resultado gráfico</h2>
+    <div className="w-full min-w-[400px]">
+      <h2 className="text-xl font-bold mb-4">Resultado gráfico</h2>
+      <div className="w-full h-[400px]">
         <VectorGraph vectors={null} customTraces={traces} />
       </div>
-    );
+    </div>
+);
   }
 
   return <p>Resultado no soportado</p>;
