@@ -43,14 +43,14 @@ export function VectorGraph({ vectors, chain = false, customTraces = null }) {
               gridcolor: "#555",
               zeroline: true,
               automargin: true,
-              range: [-10, 10]
+              // Removido el range fijo para permitir autoescalado
             },
             yaxis: {
               title: "Eje Y",
               gridcolor: "#555",
               zeroline: true,
               automargin: true,
-              range: [-10, 10]
+              // Removido el range fijo para permitir autoescalado
             },
             margin: { t: 40, l: 40, r: 20, b: 40 }
           }}
@@ -92,10 +92,9 @@ export function VectorGraphResult({ vectorResult }) {
           width: 600,
           height: 600,
           title: "Gráfico de Vectores",
-          xaxis: { range: [-10, 10], zeroline: true },
-          yaxis: { range: [-10, 10], zeroline: true },
+          xaxis: { zeroline: true }, // Removido el range fijo
+          yaxis: { zeroline: true }, // Removido el range fijo
           showlegend: true,
-          title: "Gráfico de Vectores",
           plot_bgcolor: "#2e2e3f",
           paper_bgcolor: "#293548e6 ",
 
@@ -119,15 +118,15 @@ export function VectorGraphResult({ vectorResult }) {
         displaylogo: false, // oculta el logo de Plotly
         modeBarButtonsToRemove: [
           "zoom2d",
-          "pan2d",
-          "select2d",
-          "lasso2d",
-          "zoomIn2d",
-          "zoomOut2d",
+          // "pan2d",
+          // "select2d",
+          // "lasso2d",
+          // "zoomIn2d",
+          // "zoomOut2d",
           "autoScale2d",
-          "resetScale2d",
-          "hoverClosestCartesian",
-          "hoverCompareCartesian"
+          // "resetScale2d",
+          // "hoverClosestCartesian",
+          // "hoverCompareCartesian"
         ],
       }}
       />

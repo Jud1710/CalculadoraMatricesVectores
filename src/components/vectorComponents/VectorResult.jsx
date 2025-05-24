@@ -5,8 +5,8 @@ function VectorResult({ result }) {
 
   if (typeof result.value === "number") {
     return (
-      <div>
-        <p>Resultado escalar: {result.value}</p>
+      <div className="flex items-center justify-center w-full h-full">
+        <h2 className="flex w-full h-full justify-center items-center text-2xl text-[var(--color-text-primary)]">Resultado Numerico: <strong> {result.value} </strong></h2>
       </div>
     );
   }

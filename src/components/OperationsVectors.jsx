@@ -142,6 +142,17 @@ function OperationsVectors() {
                     angle={vectors[comp.name]?.angle ?? 0}
                     magnitude={vectors[comp.name]?.magnitude ?? 0}
                     onChange={handleVectorChange}
+                    onDelete={(id) => {
+                      setVectors((prev) => {
+                        const newVectors = { ...prev };
+                        delete newVectors[id];
+                        return newVectors;
+                      });
+                      setComponents((prev) =>
+                        prev.filter((comp) => comp.name !== id)
+                      );
+                      setResult(null); // Limpiar resultado al eliminar vector
+                    }}
                   />
                 </li>
               ))}
@@ -165,7 +176,7 @@ function OperationsVectors() {
           <h2 className="font-bold mb-4 text-xl text-[var(--color-text-primary)] border-b border-[var(--color-border)] pb-3">
             Resultado
           </h2>
-          <div className="w-full min-h-[400px]">
+          <div className="w-full min-h-[100px]">
             <VectorResult result={result} />
           </div>
         </section>

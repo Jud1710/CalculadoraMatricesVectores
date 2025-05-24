@@ -48,7 +48,6 @@ export function CalculadoraNav() {
               <BtnLink liName="Cramer" href="/cramer" />
               <BtnLink liName="Operaciones " href="/operaciones" />
               <BtnLink liName="Vectores" href="/vectoresoperaciones" />
-              <BtnLink liName="Vectores3D" href="/Vectores3d" />
             </div>
           </div>
 
@@ -70,7 +69,6 @@ export function CalculadoraNav() {
             <BtnLink liName="Cramer" href="/cramer" />
             <BtnLink liName="Operaciones " href="/operaciones" />
             <BtnLink liName="Vectores" href="/vectoresoperaciones" />
-            <BtnLink liName="Vectores3D" href="/Vectores3d" />
           </div>
         </div>
       </div>
