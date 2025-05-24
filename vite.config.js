@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   base: '/CalculadoraMatricesVectores/', // Nombre de tu repositorio
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   build: {
     rollupOptions: {
       output: {
@@ -18,7 +18,7 @@ export default defineConfig({
         }
       }
     },
-    chunkSizeWarningLimit: 6000,
+    chunkSizeWarningLimit: 2000,
   },
   optimizeDeps: {
     include: ['react-plotly.js']
