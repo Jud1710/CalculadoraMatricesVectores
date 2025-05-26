@@ -42,14 +42,16 @@ export function subVectores2D({ x, y }) {
     };
 }
 
-// Actualizar también producto punto y cruz para mantener consistencia
 export function productoPunto({ x, y }) {
+    // Verificar que haya exactamente dos vectores
     if (
         !Array.isArray(x) || !Array.isArray(y) ||
-        x.length < 2 || y.length < 2
+        x.length !== 2 || y.length !== 2
     ) {
-        throw Error('Hubo un error en la transmisión de datos');
+        throw Error('El producto punto solo se puede calcular entre dos vectores.');
     }
+
+    // Calcular producto punto entre los dos vectores
     const escalar = x[0] * x[1] + y[0] * y[1];
 
     return {
