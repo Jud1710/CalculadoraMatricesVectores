@@ -44,13 +44,22 @@ export function subVectores2D({ x, y }) {
 
 // Actualizar también producto punto y cruz para mantener consistencia
 export function productoPunto({ x, y }) {
-    if (x.length !== y.length) {
+    if (
+        !Array.isArray(x) || !Array.isArray(y) ||
+        x.length < 2 || y.length < 2
+    ) {
         throw Error('Hubo un error en la transmisión de datos');
     }
-    const escalar = x.reduce((acc, val, i) => acc + val * y[i], 0);
+    const escalar = x[0] * x[1] + y[0] * y[1];
+
     return {
         value: escalar,
-        info: `Producto punto: ${escalar.toFixed(2)}`
+        info: `Producto punto: ${escalar.toFixed(5)}`,
+        vectors: {
+            V1: { x: x[0], y: y[0] },
+            V2: { x: x[1], y: y[1] }
+        },
+        operationType: "productoPunto"
     };
 }
 
