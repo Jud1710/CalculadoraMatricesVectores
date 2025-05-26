@@ -42,6 +42,7 @@ export function subVectores2D({ x, y }) {
     };
 }
 
+// cambios en producto cruz, este coment es solo para el deploy porque nbo se subio xxddddddddddd
 export function productoPunto({ x, y }) {
     // Verificar que haya exactamente dos vectores
     if (
